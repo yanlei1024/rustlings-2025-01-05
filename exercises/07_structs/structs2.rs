@@ -22,7 +22,7 @@ fn create_order_template() -> Order {
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
@@ -33,7 +33,8 @@ mod tests {
     fn your_order() {
         let order_template = create_order_template();
 
-        // TODO: Create your own order using the update syntax and template above!
+        // TODO: 利用上述更新语法(update syntax)和模板 `order_template`，
+        // 创建你自己的订单(order)结构体实例!并使其通过下面的测试。
         // let your_order =
 
         assert_eq!(your_order.name, "Hacker in Rust");

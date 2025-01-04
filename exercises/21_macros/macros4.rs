@@ -1,4 +1,4 @@
-// TODO: Fix the compiler error by adding one or two characters.
+// TODO: 通过添加一两个字符来修复编译器错误。
 #[rustfmt::skip]
 macro_rules! my_macro {
     () => {

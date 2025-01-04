@@ -1,7 +1,7 @@
-# Modules
+# 模块(Modules)
 
-In this section we'll give you an introduction to Rust's module system.
+在本节中，我们将介绍Rust的模块系统(module system)。
 
-## Further information
+## 对应知识
 
 - [The Module System](https://doc.rust-lang.org/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html)

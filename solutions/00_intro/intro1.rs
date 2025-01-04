@@ -1,5 +1,4 @@
 fn main() {
-    // Congratulations, you finished the first exercise 🎉
-    // As an introduction to Rustlings, the first exercise only required
-    // entering `n` in the terminal to go to the next exercise.
+    // 恭喜你已经完成了第一个练习 🎉
+    // 作为 Rustlings 的新手教程，此练习只需要在终端中键入`n`，即可进入下一个练习。 
 }

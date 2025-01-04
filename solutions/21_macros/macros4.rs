@@ -1,4 +1,4 @@
-// Added semicolons to separate the macro arms.
+// 添加了分号来分隔宏的分支。
 #[rustfmt::skip]
 macro_rules! my_macro {
     () => {

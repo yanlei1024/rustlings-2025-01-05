@@ -1,12 +1,11 @@
-// TODO: This function refuses to generate text to be printed on a nametag if
-// you pass it an empty string. It'd be nicer if it explained what the problem
-// was instead of just returning `None`. Thankfully, Rust has a similar
-// construct to `Option` that can be used to express error conditions. Change
-// the function signature and body to return `Result<String, String>` instead
-// of `Option<String>`.
+// TODO: 如果你给这个函数传入一个空字符串，它将拒绝生成要打印在名牌(nametag)上的文本。
+// 如果它能解释问题所在，而不仅仅是返回 `None`，那就更好了。
+// 幸运的是，Rust有一个与 `Option` 类似的结构，可以用来表示错误情况。
+// 将函数签名和函数体改为返回 `Result<String, String>`，而不是 `Option<String>`。
+
 fn generate_nametag_text(name: String) -> Option<String> {
     if name.is_empty() {
-        // Empty names aren't allowed
+        // 不允许姓名为空。
         None
     } else {
         Some(format!("Hi! My name is {name}"))
@@ -14,7 +13,7 @@ fn generate_nametag_text(name: String) -> Option<String> {
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
@@ -35,7 +34,7 @@ mod tests {
             generate_nametag_text(String::new())
                 .as_ref()
                 .map_err(|e| e.as_str()),
-            Err("Empty names aren't allowed"),
+            Err("不允许姓名为空"),
         );
     }
 }

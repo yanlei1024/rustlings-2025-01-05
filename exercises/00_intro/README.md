@@ -1,8 +1,9 @@
-# Intro
+# 介绍
 
-Rust uses the `print!` and `println!` macros to print text to the console.
+Rust 使用 `print!` 和 `println!` 宏将文本打印到控制台。
 
-## Further information
+## 对应知识
 
 - [Hello World](https://doc.rust-lang.org/rust-by-example/hello.html)
 - [Formatted print](https://doc.rust-lang.org/rust-by-example/hello/print.html)
+

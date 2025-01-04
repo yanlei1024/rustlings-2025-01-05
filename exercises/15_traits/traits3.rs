@@ -1,8 +1,7 @@
 trait Licensed {
-    // TODO: Add a default implementation for `licensing_info` so that
-    // implementors like the two structs below can share that default behavior
-    // without repeating the function.
-    // The default license information should be the string "Default license".
+    // TODO: 为 `licensing_info` 添加一个默认实现，
+    // 以便像下面这两个结构体这样的实现者能够共享该默认行为，而无需重复编写该函数。
+    // 默认许可信息应该为字符串 "Default license"。
     fn licensing_info(&self) -> String;
 }
 
@@ -14,11 +13,11 @@ struct OtherSoftware {
     version_number: String,
 }
 
-impl Licensed for SomeSoftware {} // Don't edit this line.
-impl Licensed for OtherSoftware {} // Don't edit this line.
+impl Licensed for SomeSoftware {} // 不要编辑此行代码。
+impl Licensed for OtherSoftware {} // 不要编辑此行代码。
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

@@ -1,6 +1,5 @@
-// Building on the last exercise, we want all of the threads to complete their
-// work. But this time, the spawned threads need to be in charge of updating a
-// shared value: `JobStatus.jobs_done`
+// 在上一个练习的基础上，我们希望所有线程都完成它们的工作。
+// 但这次，被生成的线程需要负责更新一个共享的值: `JobStatus.jobs_done`。 
 
 use std::{
     sync::{Arc, Mutex},
@@ -13,8 +12,8 @@ struct JobStatus {
 }
 
 fn main() {
-    // `Arc` isn't enough if you want a **mutable** shared state.
-    // We need to wrap the value with a `Mutex`.
+    // 如果你想要一个**可变的**共享状态，仅使用 `Arc` 是不够的。
+    // 我们需要用 `Mutex` 包装(wrap)值。
     let status = Arc::new(Mutex::new(JobStatus { jobs_done: 0 }));
     //                    ^^^^^^^^^^^                          ^
 
@@ -24,14 +23,14 @@ fn main() {
         let handle = thread::spawn(move || {
             thread::sleep(Duration::from_millis(250));
 
-            // Lock before you update a shared value.
+            // 在更新共享值之前进行加锁(lock)。
             status_shared.lock().unwrap().jobs_done += 1;
             //           ^^^^^^^^^^^^^^^^
         });
         handles.push(handle);
     }
 
-    // Waiting for all jobs to complete.
+    // 等待所有任务完成。
     for handle in handles {
         handle.join().unwrap();
     }

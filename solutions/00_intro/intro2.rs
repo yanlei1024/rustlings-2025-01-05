@@ -1,4 +1,4 @@
 fn main() {
-    // `println!` instead of `printline!`.
+    // 使用 `println!` 替换掉 `printline!`。
     println!("Hello world!");
 }

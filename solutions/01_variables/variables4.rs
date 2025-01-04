@@ -1,6 +1,6 @@
 fn main() {
-    // In Rust, variables are immutable by default.
-    // Adding the `mut` keyword after `let` makes the declared variable mutable.
+    // 在Rust中，变量默认是不可变的。
+    // 在 `let` 后添加 `mut` 关键字可以声明变量是可变的。
     let mut x = 3;
     println!("Number {x}");
 

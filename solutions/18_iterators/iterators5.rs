@@ -1,8 +1,7 @@
-// Let's define a simple model to track Rustlings' exercise progress. Progress
-// will be modelled using a hash map. The name of the exercise is the key and
-// the progress is the value. Two counting functions were created to count the
-// number of exercises with a given progress. Recreate this counting
-// functionality using iterators. Try to not use imperative loops (for/while).
+// 让我们定义一个简单的模型来追踪踪Rustlings的练习进度。
+// 进度将使用哈希映射进行建模。练习的名称是键，进度是值。
+// 创建了两个计数函数来计算具有给定进度的练习数量。
+// 使用迭代器重新创建此计数功能。尽量不使用命令式循环(`for`/`while`)。
 
 use std::collections::HashMap;
 
@@ -38,7 +37,7 @@ fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progres
 }
 
 fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
-    // `collection` is a slice of hash maps.
+    // `collection` 是哈希表的一个切片。
     // collection = [{ "variables1": Complete, "from_str": None, … },
     //               { "variables2": Complete, … }, … ]
     collection
@@ -47,9 +46,8 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
         .sum()
 }
 
-// Equivalent to `count_collection_iterator` and `count_iterator`, iterating as
-// if the collection was a single container instead of a container of containers
-// (and more accurately, a single iterator instead of an iterator of iterators).
+// 等同于 `count_collection_iterator` 和 `count_iterator`，
+// 其迭代方式就好像集合是单个容器，而非容器的容器(更准确地说，是单个迭代器，而非迭代器的迭代器)。 
 fn count_collection_iterator_flat(
     collection: &[HashMap<String, Progress>],
     value: Progress,
@@ -59,13 +57,13 @@ fn count_collection_iterator_flat(
     //               { "variables2": Complete, … }, … ]
     collection
         .iter()
-        .flat_map(HashMap::values) // or just `.flatten()` when wanting the default iterator (`HashMap::iter`)
+        .flat_map(HashMap::values) // 或者就 `.flatten()` 当想用默认迭代器时 (`HashMap::iter`)
         .filter(|val| **val == value)
         .count()
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

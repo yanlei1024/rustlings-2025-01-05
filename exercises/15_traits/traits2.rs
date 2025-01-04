@@ -2,11 +2,11 @@ trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
-// TODO: Implement the trait `AppendBar` for a vector of strings.
-// `append_bar` should push the string "Bar" into the vector.
+// TODO: 为字符串动态数组(Vec<String>)实现 `AppendBar` 特征。
+// `append_bar` 方法应该将字符串 "Bar" 添加到该动态数组中。
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

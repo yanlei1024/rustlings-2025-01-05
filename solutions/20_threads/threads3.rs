@@ -15,13 +15,13 @@ impl Queue {
 }
 
 fn send_tx(q: Queue, tx: mpsc::Sender<u32>) {
-    // Clone the sender `tx` first.
+    // 先克隆发送端 `tx`。 
     let tx_clone = tx.clone();
     thread::spawn(move || {
         for val in q.first_half {
             println!("Sending {val:?}");
-            // Then use the clone in the first thread. This means that
-            // `tx_clone` is moved to the first thread and `tx` to the second.
+            // 然后在第一个线程中使用克隆。
+            // 这意味着 `tx_clone` 被移动到了第一个线程中，而 `tx` 则被移动到了第二个线程中。 
             tx_clone.send(val).unwrap();
             thread::sleep(Duration::from_millis(250));
         }
@@ -37,7 +37,7 @@ fn send_tx(q: Queue, tx: mpsc::Sender<u32>) {
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

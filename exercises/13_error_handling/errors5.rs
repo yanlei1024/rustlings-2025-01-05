@@ -1,15 +1,13 @@
-// This exercise is an altered version of the `errors4` exercise. It uses some
-// concepts that we won't get to until later in the course, like `Box` and the
-// `From` trait. It's not important to understand them in detail right now, but
-// you can read ahead if you like. For now, think of the `Box<dyn ???>` type as
-// an "I want anything that does ???" type.
+// 本练习是 `errors4` 练习的一个变形版本。
+// 它使用了一些我们在课程后面才会学到的概念，比如 `Box` 以及 `From` trait。
+// 现在没必要详细理解它们，不过如果你愿意的话可以提前阅读相关内容。
+// 目前，可以把 `Box<dyn???>` 类型看作是一种 `我想要任何都能实现??? 功能` 这样的类型。
 //
-// In short, this particular use case for boxes is for when you want to own a
-// value and you care only that it is a type which implements a particular
-// trait. To do so, The `Box` is declared as of type `Box<dyn Trait>` where
-// `Trait` is the trait the compiler looks for on any value used in that
-// context. For this exercise, that context is the potential errors which
-// can be returned in a `Result`.
+// 简而言之，这种针对“Box”的特定用例适用于当你想要持有一个值，
+// 并且你只关心它是一个实现了特定trait(特征)的类型这种情况。
+// 要做到这一点，`Box` 会被声明为 `Box<dyn Trait>` 类型，
+// 其中 `Trait` 就是编译器在该上下文中所使用的任何值上查找的特征。
+// 对于本练习而言，这个上下文就是那些可能在 `Result` 中返回的错误情况。 
 
 use std::error::Error;
 use std::fmt;
@@ -20,7 +18,7 @@ enum CreationError {
     Zero,
 }
 
-// This is required so that `CreationError` can implement `Error`.
+// 这样做是为了让 `CreationError` 能够实现 `Error`。
 impl fmt::Display for CreationError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let description = match *self {
@@ -46,8 +44,8 @@ impl PositiveNonzeroInteger {
     }
 }
 
-// TODO: Add the correct return type `Result<(), Box<dyn ???>>`. What can we
-// use to describe both errors? Is there a trait which both errors implement?
+// TODO: 添加正确的返回类型 `Result<(), Box<dyn???>>`。
+// 我们可以用什么来描述这两种错误呢？是否存在一个这两种错误都实现的特征(trait)呢?
 fn main() {
     let pretend_user_input = "42";
     let x: i64 = pretend_user_input.parse()?;

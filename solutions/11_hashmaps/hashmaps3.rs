@@ -1,14 +1,12 @@
-// A list of scores (one per line) of a soccer match is given. Each line is of
-// the form "<team_1_name>,<team_2_name>,<team_1_goals>,<team_2_goals>"
-// Example: "England,France,4,2" (England scored 4 goals, France 2).
+// 已知一场足球比赛的比分列表(每行一个比分)。
+// 每行的格式为 "<球队1名称>, <球队2名称>, <球队1进球数>, <球队2进球数>"
+// 例如: "英格兰, 法国, 4, 2"(英格兰进了4个球，法国进了2个球)。
 //
-// You have to build a scores table containing the name of the team, the total
-// number of goals the team scored, and the total number of goals the team
-// conceded.
+// 你需要构建一个比分表，其中包含球队名称、球队总进球数以及球队总失球数。
 
 use std::collections::HashMap;
 
-// A structure to store the goal details of a team.
+// 一个用于存储球队进球详细信息的结构体。
 #[derive(Default)]
 struct TeamScores {
     goals_scored: u8,
@@ -16,24 +14,24 @@ struct TeamScores {
 }
 
 fn build_scores_table(results: &str) -> HashMap<&str, TeamScores> {
-    // The name of the team is the key and its associated struct is the value.
+    // 球队的名称是键，与之关联的结构体是值。
     let mut scores = HashMap::<&str, TeamScores>::new();
 
     for line in results.lines() {
         let mut split_iterator = line.split(',');
-        // NOTE: We use `unwrap` because we didn't deal with error handling yet.
+        // 注意: 我们使用 `unwrap` 是因为我们还没有处理错误处理相关内容。
         let team_1_name = split_iterator.next().unwrap();
         let team_2_name = split_iterator.next().unwrap();
         let team_1_score: u8 = split_iterator.next().unwrap().parse().unwrap();
         let team_2_score: u8 = split_iterator.next().unwrap().parse().unwrap();
 
-        // Insert the default with zeros if a team doesn't exist yet.
+        // 如果球队尚不存在，则插入默认值0。
         let team_1 = scores.entry(team_1_name).or_default();
-        // Update the values.
+        // 更新值。
         team_1.goals_scored += team_1_score;
         team_1.goals_conceded += team_2_score;
 
-        // Similarly for the second team.
+        // 对于第二支球队也是如此。
         let team_2 = scores.entry(team_2_name).or_default();
         team_2.goals_scored += team_2_score;
         team_2.goals_conceded += team_1_score;
@@ -43,7 +41,7 @@ fn build_scores_table(results: &str) -> HashMap<&str, TeamScores> {
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

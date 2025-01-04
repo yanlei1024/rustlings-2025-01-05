@@ -1,5 +1,5 @@
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
@@ -26,7 +26,7 @@ mod tests {
 
         let mut cursor = range;
 
-        // while-let with nested pattern matching
+        // 带有嵌套模式匹配的 while-let
         while let Some(Some(integer)) = optional_integers.pop() {
             assert_eq!(integer, cursor);
             cursor -= 1;

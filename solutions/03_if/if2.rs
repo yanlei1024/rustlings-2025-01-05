@@ -1,15 +1,15 @@
 fn picky_eater(food: &str) -> &str {
-    if food == "strawberry" {
-        "Yummy!"
-    } else if food == "potato" {
-        "I guess I can eat that."
+    if food == "草莓" {
+        "美味!"
+    } else if food == "土豆" {
+        "还行吧"
     } else {
-        "No thanks!"
+        "不吃"
     }
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
@@ -18,18 +18,18 @@ mod tests {
 
     #[test]
     fn yummy_food() {
-        assert_eq!(picky_eater("strawberry"), "Yummy!");
+        assert_eq!(picky_eater("草莓"), "美味!");
     }
 
     #[test]
     fn neutral_food() {
-        assert_eq!(picky_eater("potato"), "I guess I can eat that.");
+        assert_eq!(picky_eater("土豆"), "还行吧");
     }
 
     #[test]
     fn default_disliked_food() {
-        assert_eq!(picky_eater("broccoli"), "No thanks!");
-        assert_eq!(picky_eater("gummy bears"), "No thanks!");
-        assert_eq!(picky_eater("literally anything"), "No thanks!");
+        assert_eq!(picky_eater("香菜"), "不吃");
+        assert_eq!(picky_eater("洋葱"), "不吃");
+        assert_eq!(picky_eater("大蒜"), "不吃");
     }
 }

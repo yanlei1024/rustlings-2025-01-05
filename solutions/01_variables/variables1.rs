@@ -1,6 +1,6 @@
 fn main() {
-    // Declaring variables requires the `let` keyword.
+    // 声明变量需要使用 `let` 关键字。
     let x = 5;
 
-    println!("x has the value {x}");
+    println!("x 的值为 {x}");
 }

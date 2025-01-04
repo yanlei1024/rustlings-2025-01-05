@@ -1,22 +1,21 @@
-// Tests are important to ensure that your code does what you think it should
-// do.
+// 测试(Tests)对于确保你的代码能实现预期功能来说非常重要。
 
 fn is_even(n: i64) -> bool {
     n % 2 == 0
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
 mod tests {
-    // TODO: Import `is_even`. You can use a wildcard to import everything in
-    // the outer module.
+    // TODO: 引入 `is_even`。
+    // 你可以使用通配符来引入外部模块中的所有内容。
 
     #[test]
     fn you_can_assert() {
-        // TODO: Test the function `is_even` with some values.
+        // TODO: 使用一些值来测试函数 `is_even`。
         assert!();
         assert!();
     }

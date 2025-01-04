@@ -1,11 +1,10 @@
-// The trait `AppendBar` has only one function which appends "Bar" to any object
-// implementing this trait.
+// 特征 `AppendBar` 只有一个函数，该函数会将 "Bar" 追加到实现此特征的任何对象上。
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
 impl AppendBar for String {
-    // TODO: Implement `AppendBar` for the type `String`.
+    // TODO: 为 `String` 类型实现 `AppendBar` 。
 }
 
 fn main() {

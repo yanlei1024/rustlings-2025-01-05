@@ -1,30 +1,30 @@
 fn animal_habitat(animal: &str) -> &str {
-    let identifier = if animal == "crab" {
+    let identifier = if animal == "螃蟹" {
         1
-    } else if animal == "gopher" {
+    } else if animal == "地鼠" {
         2
-    } else if animal == "snake" {
+    } else if animal == "蟒蛇" {
         3
     } else {
-        // Any unused identifier.
+        // 任何不使用的标识符。
         4
     };
 
-    // Instead of such an identifier, you would use an enum in Rust.
-    // But we didn't get into enums yet.
+    // 在Rust中，你会使用枚举(enum)来替代这样的标识符。
+    // 不过我们还没学习到枚举呢。
     if identifier == 1 {
-        "Beach"
+        "海滩"
     } else if identifier == 2 {
-        "Burrow"
+        "地洞"
     } else if identifier == 3 {
-        "Desert"
+        "沙漠"
     } else {
-        "Unknown"
+        "未知"
     }
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
@@ -33,21 +33,21 @@ mod tests {
 
     #[test]
     fn gopher_lives_in_burrow() {
-        assert_eq!(animal_habitat("gopher"), "Burrow")
+        assert_eq!(animal_habitat("地鼠"), "地洞")
     }
 
     #[test]
     fn snake_lives_in_desert() {
-        assert_eq!(animal_habitat("snake"), "Desert")
+        assert_eq!(animal_habitat("蟒蛇"), "沙漠")
     }
 
     #[test]
     fn crab_lives_on_beach() {
-        assert_eq!(animal_habitat("crab"), "Beach")
+        assert_eq!(animal_habitat("螃蟹"), "海滩")
     }
 
     #[test]
     fn unknown_animal() {
-        assert_eq!(animal_habitat("dinosaur"), "Unknown")
+        assert_eq!(animal_habitat("恐龙"), "未知")
     }
 }

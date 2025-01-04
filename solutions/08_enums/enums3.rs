@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 struct Point {
     x: u64,
     y: u64,
@@ -54,7 +56,7 @@ impl State {
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

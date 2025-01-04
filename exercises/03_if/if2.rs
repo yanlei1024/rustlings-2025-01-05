@@ -1,37 +1,37 @@
-// TODO: Fix the compiler error on this function.
+// TODO: 修复此函数上的编译器错误。
 fn picky_eater(food: &str) -> &str {
-    if food == "strawberry" {
-        "Yummy!"
+    if food == "草莓" {
+        "美味!"
     } else {
         1
     }
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
-// TODO: Read the tests to understand the desired behavior.
-// Make all tests pass without changing them.
+// TODO: 阅读这些测试用例，试着理解它们在干什么。
+// 在不修改测试用例的情况下，使所有测试通过。
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn yummy_food() {
-        // This means that calling `picky_eater` with the argument "strawberry" should return "Yummy!".
-        assert_eq!(picky_eater("strawberry"), "Yummy!");
+        // 这说明在调用`picky_eater`函数时，传入参数`草莓`应该返回`美味!`。
+        assert_eq!(picky_eater("草莓"), "美味!");
     }
 
     #[test]
     fn neutral_food() {
-        assert_eq!(picky_eater("potato"), "I guess I can eat that.");
+        assert_eq!(picky_eater("土豆"), "还行吧");
     }
 
     #[test]
     fn default_disliked_food() {
-        assert_eq!(picky_eater("broccoli"), "No thanks!");
-        assert_eq!(picky_eater("gummy bears"), "No thanks!");
-        assert_eq!(picky_eater("literally anything"), "No thanks!");
+        assert_eq!(picky_eater("香菜"), "不吃");
+        assert_eq!(picky_eater("洋葱"), "不吃");
+        assert_eq!(picky_eater("大蒜"), "不吃");
     }
 }

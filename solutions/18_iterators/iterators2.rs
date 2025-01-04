@@ -1,6 +1,6 @@
-// In this exercise, you'll learn some of the unique advantages that iterators
-// can offer.
+// 在这个练习中，你将了解迭代器的一些独特优势。
 
+// 完成 `capitalize_first` 函数。
 // "hello" -> "Hello"
 fn capitalize_first(input: &str) -> String {
     let mut chars = input.chars();
@@ -10,22 +10,22 @@ fn capitalize_first(input: &str) -> String {
     }
 }
 
-// Apply the `capitalize_first` function to a slice of string slices.
-// Return a vector of strings.
+// 将 `capitalize_first` 函数应用于字符串切片的切片。
+// 并返回一个字符串动态数组。
 // ["hello", "world"] -> ["Hello", "World"]
 fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
     words.iter().map(|word| capitalize_first(word)).collect()
 }
 
-// Apply the `capitalize_first` function again to a slice of string
-// slices. Return a single string.
+// TODO: 再次将 `capitalize_first` 函数应用于字符串切片的切片。
+// 并单独返回一个字符串。
 // ["hello", " ", "world"] -> "Hello World"
 fn capitalize_words_string(words: &[&str]) -> String {
     words.iter().map(|word| capitalize_first(word)).collect()
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

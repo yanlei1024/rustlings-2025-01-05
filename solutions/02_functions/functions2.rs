@@ -1,8 +1,8 @@
-// The type of function arguments must be annotated.
-// Added the type annotation `u64`.
+// 函数参数的类型必须进行标注。
+// 添加类型注解 `u64`。
 fn call_me(num: u64) {
     for i in 0..num {
-        println!("Ring! Call number {}", i + 1);
+        println!("叮! 调用数字 {}", i + 1);
     }
 }
 

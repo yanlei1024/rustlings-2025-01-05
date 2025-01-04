@@ -1,4 +1,4 @@
-// Calls of this function should be replaced with calls of `string_slice` or `string`.
+// 对这个函数的调用应该替换为对函数 `string_slice` 或者 `string` 的调用。
 fn placeholder() {}
 
 fn string_slice(arg: &str) {
@@ -9,9 +9,9 @@ fn string(arg: String) {
     println!("{arg}");
 }
 
-// TODO: Here are a bunch of values - some are `String`, some are `&str`.
-// Your task is to replace `placeholder(…)` with either `string_slice(…)`
-// or `string(…)` depending on what you think each value is.
+// TODO: 这里有一堆值 —— 有些是 `String` 类型，有些是 `&str` 类型。
+// 你的任务是根据你认为每个值的类型，将 `placeholder(…)` 替换为 `string_slice(…)` 
+// 或者 `string(…)`。 
 fn main() {
     placeholder("blue");
 

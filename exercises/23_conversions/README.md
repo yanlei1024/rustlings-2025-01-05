@@ -1,23 +1,24 @@
-# Type conversions
+# 类型转换(Type conversions)
 
-Rust offers a multitude of ways to convert a value of a given type into another type.
+Rust提供了多种将给定类型的值转换为另一种类型的方法。
 
-The simplest form of type conversion is a type cast expression. It is denoted with the binary operator `as`. For instance, `println!("{}", 1 + 1.0);` would not compile, since `1` is an integer while `1.0` is a float. However, `println!("{}", 1 as f32 + 1.0)` should compile. The exercise [`using_as`](using_as.rs) tries to cover this.
+类型转换最简单的方法是使用类型转换表达式(type cast expression)，它通过二元运算符(binary operator) `as` 来表示。例如，`println!("{}", 1 + 1.0);` 是无法编译的，因为 `1` 是整数，而 `1.0` 是浮点数。然而，`println!("{}", 1 as f32 + 1.0)` 是可以编译的。练习[`using_as`](using_as.rs)大致讲的就是这方面内容。
 
-Rust also offers traits that facilitate type conversions upon implementation. These traits can be found under the [`convert`](https://doc.rust-lang.org/std/convert/index.html) module.
-The traits are the following:
+Rust还提供了一些特征(traits)，在实现(impl)它们之后有助于进行类型转换。这些特征可以在[`convert`](https://doc.rust-lang.org/std/convert/index.html)模块中找到。
 
-- `From` and `Into` covered in [`from_into`](from_into.rs)
-- `TryFrom` and `TryInto` covered in [`try_from_into`](try_from_into.rs)
-- `AsRef` and `AsMut` covered in [`as_ref_mut`](as_ref_mut.rs)
+这些特征如下:
 
-Furthermore, the `std::str` module offers a trait called [`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html) which helps with converting strings into target types via the `parse` method on strings. If properly implemented for a given type `Person`, then `let p: Person = "Mark,20".parse().unwrap()` should both compile and run without panicking.
+- 在[`from_into`](from_into.rs)中涉及的 `From` 和 `Into`
+- 在[`try_from_into`](try_from_into.rs)中涉及的 `TryFrom` 和 `TryInto`
+- 在[`as_ref_mut`](as_ref_mut.rs)中涉及的 `AsRef` 和 `AsMut`
 
-These should be the main ways ***within the standard library*** to convert data into your desired types.
+此外，`std::str` 模块提供了一个名为[`FromStr`](https://doc.rust-lang.org/std/str/trait.FromStr.html)的特征，它有助于通过字符串上的 `parse` 方法将字符串转换为目标类型。如果针对给定类型 `Person` 正确实现了该特征，那么 `let p: Person = "Mark,20".parse().unwrap()` 应该既能编译又能运行，且不会出现程序崩溃的情况。
 
-## Further information
+这些应该是***在标准库内***(within the standard library)将数据转换为期望类型的主要方法。 
 
-These are not directly covered in the book, but the standard library has a great documentation for it.
+## 对应知识
+
+这些内容在书中没有直接涉及，但标准库有很好的相关文档。
 
 - [conversions](https://doc.rust-lang.org/std/convert/index.html)
 - [`FromStr` trait](https://doc.rust-lang.org/std/str/trait.FromStr.html)

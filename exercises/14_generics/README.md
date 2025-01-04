@@ -1,11 +1,14 @@
-# Generics
+# 泛型(Generics)
 
-Generics is the topic of generalizing types and functionalities to broader cases.
-This is extremely useful for reducing code duplication in many ways, but can call for some rather involved syntax.
 Namely, being generic requires taking great care to specify over which types a generic type is actually considered valid.
 The simplest and most common use of generics is for type parameters.
 
-## Further information
+泛型旨在将类型和功能泛化到更广泛情况。
+这在诸多方面对于减少代码重复极为有用，不过可能需要一些颇为复杂的语法。
+确切而言，使用泛型时需格外留意指定泛型类型在哪些类型上实际有效。
+泛型最简单且最常见的用途是作为类型参数。
 
-- [Generic Data Types](https://doc.rust-lang.org/book/ch10-01-syntax.html)
-- [Bounds](https://doc.rust-lang.org/rust-by-example/generics/bounds.html)
+## 对应知识
+
+- [Generic Data Types(泛型数据类型)](https://doc.rust-lang.org/book/ch10-01-syntax.html)
+- [Bounds(边界约束)](https://doc.rust-lang.org/rust-by-example/generics/bounds.html)

@@ -1,5 +1,5 @@
 fn square(num: i32) -> i32 {
-    // Removed the semicolon `;` at the end of the line below to implicitly return the result.
+    // 移除下面这行代码末尾的分号 `;` ，以便隐式返回结果。
     num * num
 }
 

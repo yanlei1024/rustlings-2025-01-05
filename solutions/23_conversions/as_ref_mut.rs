@@ -1,26 +1,27 @@
-// AsRef and AsMut allow for cheap reference-to-reference conversions. Read more
-// about them at https://doc.rust-lang.org/std/convert/trait.AsRef.html and
-// https://doc.rust-lang.org/std/convert/trait.AsMut.html, respectively.
+// `AsRef` 和 `AsMut` 允许进行低成本的引用到引用的转换。
+// 分别在 https://doc.rust-lang.org/std/convert/trait.AsRef.html 
+// 和 https://doc.rust-lang.org/std/convert/trait.AsMut.html 
+// 阅读更多关于它们的内容。 
 
-// Obtain the number of bytes (not characters) in the given argument
-// (`.len()` returns the number of bytes in a string).
+// 获取给定参数中的字节数(bytes, 而非字符数)
+// (`.len()` 方法返回的是字符串中的字节数)。
 fn byte_counter<T: AsRef<str>>(arg: T) -> usize {
     arg.as_ref().len()
 }
 
-// Obtain the number of characters (not bytes) in the given argument.
+// 获取给定参数中的字符数(而非字节数)。
 fn char_counter<T: AsRef<str>>(arg: T) -> usize {
     arg.as_ref().chars().count()
 }
 
-// Squares a number using `as_mut()`.
+// 使用 `as_mut()` 并对一个数字进行求平方操作。
 fn num_sq<T: AsMut<u32>>(arg: &mut T) {
     let arg = arg.as_mut();
     *arg *= *arg;
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

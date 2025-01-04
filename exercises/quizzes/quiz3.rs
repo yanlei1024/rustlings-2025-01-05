@@ -1,35 +1,34 @@
-// This quiz tests:
-// - Generics
-// - Traits
+// 本次小测验考查以下内容：
+// - 泛型(Generics)
+// - 特性(Traits)
 //
-// An imaginary magical school has a new report card generation system written
-// in Rust! Currently, the system only supports creating report cards where the
-// student's grade is represented numerically (e.g. 1.0 -> 5.5). However, the
-// school also issues alphabetical grades (A+ -> F-) and needs to be able to
-// print both types of report card!
+// 一所虚构的魔法学校里有一个用Rust编写的学生成绩单生成系统!
+// 目前，该系统仅支持创建以数字形式(例如，1.0 -> 5.5)来表示学生成绩的成绩单。
+// 然而，这所学校也会给出字母形式的成绩(A+ -> F-)，
+// 并且需要能够打印这两种类型的成绩单！
 //
-// Make the necessary code changes in the struct `ReportCard` and the impl
-// block to support alphabetical report cards in addition to numerical ones.
+// 请在 `ReportCard` 结构体以及其实现块(impl block)中进行必要的代码修改，
+// 使得除了支持数字成绩的成绩单之外，还能支持字母成绩的成绩单。 
 
-// TODO: Adjust the struct as described above.
+// TODO: 按照上述描述调整结构体。
 struct ReportCard {
     grade: f32,
     student_name: String,
     student_age: u8,
 }
 
-// TODO: Adjust the impl block as described above.
+// TODO: 按照上述描述调整实现块(impl block)。
 impl ReportCard {
     fn print(&self) -> String {
         format!(
-            "{} ({}) - achieved a grade of {}",
+            "{} ({}) - 取得的成绩为 {}",
             &self.student_name, &self.student_age, &self.grade,
         )
     }
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
@@ -40,12 +39,12 @@ mod tests {
     fn generate_numeric_report_card() {
         let report_card = ReportCard {
             grade: 2.1,
-            student_name: "Tom Wriggle".to_string(),
+            student_name: "柳如烟".to_string(),
             student_age: 12,
         };
         assert_eq!(
             report_card.print(),
-            "Tom Wriggle (12) - achieved a grade of 2.1",
+            "柳如烟 (12) - 取得的成绩为 2.1",
         );
     }
 
@@ -53,12 +52,12 @@ mod tests {
     fn generate_alphabetic_report_card() {
         let report_card = ReportCard {
             grade: "A+",
-            student_name: "Gary Plotter".to_string(),
+            student_name: "菠萝吹雪".to_string(),
             student_age: 11,
         };
         assert_eq!(
             report_card.print(),
-            "Gary Plotter (11) - achieved a grade of A+",
+            "菠萝吹雪 (11) - 取得的成绩为 A+",
         );
     }
 }

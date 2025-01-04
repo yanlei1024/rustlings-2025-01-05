@@ -1,4 +1,4 @@
-// The type of constants must always be annotated.
+// 常量的类型必须始终进行标注。
 const NUMBER: u64 = 3;
 
 fn main() {

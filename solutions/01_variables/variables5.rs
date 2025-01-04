@@ -1,9 +1,9 @@
 fn main() {
     let number = "T-H-R-E-E";
-    println!("Spell a number: {}", number);
+    println!("拼写number: {}", number);
 
-    // Using variable shadowing
+    // 使用变量遮蔽(variable shadowing)
     // https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing
     let number = 3;
-    println!("Number plus two is: {}", number + 2);
+    println!("number加上2等于: {}", number + 2);
 }

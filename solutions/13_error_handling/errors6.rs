@@ -1,8 +1,6 @@
-// Using catch-all error types like `Box<dyn Error>` isn't recommended for
-// library code where callers might want to make decisions based on the error
-// content instead of printing it out or propagating it further. Here, we define
-// a custom error type to make it possible for callers to decide what to do next
-// when our function returns an error.
+// 对于库(lib)代码而言，不建议使用像 `Box<dyn Error>` 这样能捕获所有错误的类型，
+// 因为调用者可能希望基于错误内容来做决策，而不是将错误打印出来或者进一步传播它。
+// 这里，我们定义了一个自定义错误类型，以便当我们的函数返回错误时，调用者能够决定下一步该怎么做。 
 
 use std::num::ParseIntError;
 
@@ -12,7 +10,7 @@ enum CreationError {
     Zero,
 }
 
-// A custom error type that we will be using in `PositiveNonzeroInteger::parse`.
+// 一个将在 `PositiveNonzeroInteger::parse` 中使用的自定义错误类型。
 #[derive(PartialEq, Debug)]
 enum ParsePosNonzeroError {
     Creation(CreationError),
@@ -29,15 +27,14 @@ impl ParsePosNonzeroError {
     }
 }
 
-// As an alternative solution, implementing the `From` trait allows for the
-// automatic conversion from a `ParseIntError` into a `ParsePosNonzeroError`
-// using the `?` operator, without the need to call `map_err`.
+// 作为一种替代解决方案，实现 `From` 特征允许使用 `?` 操作符
+// 将 `ParseIntError` 自动转换为 `ParsePosNonzeroError`，而无需调用 `map_err`。
 //
 // ```
 // let x: i64 = s.parse()?;
 // ```
 //
-// Traits like `From` will be dealt with in later exercises.
+// 诸如 `From` 之类的特征将在后续练习中进行讲解。
 impl From<ParseIntError> for ParsePosNonzeroError {
     fn from(err: ParseIntError) -> Self {
         ParsePosNonzeroError::ParseInt(err)
@@ -57,8 +54,8 @@ impl PositiveNonzeroInteger {
     }
 
     fn parse(s: &str) -> Result<Self, ParsePosNonzeroError> {
-        // Return an appropriate error instead of panicking when `parse()`
-        // returns an error.
+        // 将这里修改为返回一个合适的错误，
+        // 而不是在 `parse()` 返回错误时引发程序崩溃(panic)。
         let x: i64 = s.parse().map_err(ParsePosNonzeroError::from_parse_int)?;
         //                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         Self::new(x).map_err(ParsePosNonzeroError::from_creation)
@@ -66,7 +63,7 @@ impl PositiveNonzeroInteger {
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

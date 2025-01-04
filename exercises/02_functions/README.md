@@ -1,8 +1,7 @@
-# Functions
+# 函数
 
-Here, you'll learn how to write functions and how the Rust compiler can help you debug errors even
-in more complex code.
+在这里，你将学习如何编写函数，以及Rust编译器如何帮助你调试错误，即便在更为复杂的代码中也是如此。
 
-## Further information
+## 对应知识
 
-- [How Functions Work](https://doc.rust-lang.org/book/ch03-03-how-functions-work.html)
+- [How Functions Work(函数是如何实现的)](https://doc.rust-lang.org/book/ch03-03-how-functions-work.html)

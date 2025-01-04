@@ -1,3 +1,3 @@
-# Quizzes
+# 小测验
 
-After every couple of sections, there will be a quiz in this directory that'll test your knowledge on a bunch of sections at once.
+每隔几个章节之后，在这个目录下将会有一个小测验，它会一次性考查你对多个章节内容的掌握情况。

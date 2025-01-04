@@ -9,23 +9,25 @@ fn vec_loop(input: &[i32]) -> Vec<i32> {
 }
 
 fn vec_map_example(input: &[i32]) -> Vec<i32> {
-    // An example of collecting a vector after mapping.
-    // We map each element of the `input` slice to its value plus 1.
-    // If the input is `[1, 2, 3]`, the output is `[2, 3, 4]`.
+    // 下面是一个先对元素进行映射(map)，然后收集(collect)成动态数组的例子。
+    // 我们先把`input`切片里的每个元素都变成(映射)其原本的值加1 。
+    //         1 -> 1 + 1 => 2
+    //         2 -> 2 + 1 => 3
+    //         3 -> 3 + 1 => 4
+    //         n -> n + 1 => n + 1
+    // 例如，如果输入的是 `[1, 2, 3]` ，那得到的输出就会是 `[2, 3, 4]` 。
     input.iter().map(|element| element + 1).collect()
 }
 
 fn vec_map(input: &[i32]) -> Vec<i32> {
-    // We will dive deeper into iterators, but for now, this is all what you
-    // had to do!
-    // Advanced note: This method is more efficient because it automatically
-    // preallocates enough capacity. This can be done manually in `vec_loop`
-    // using `Vec::with_capacity(input.len())` instead of `Vec::new()`.
+    // 我们之后会更深入地探讨迭代器(iterators)，不过就目前而言，这些就足够了!
+    // 进阶提示：这个方法效率更高，因为它会自动预先分配足够的容量(capacity)。
+    // 在 `vec_loop` 方法中，可以通过使用 `Vec::with_capacity(input.len())` 来替代 `Vec::new()` 手动完成这一操作。 
     input.iter().map(|element| 2 * element).collect()
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]

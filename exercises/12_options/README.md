@@ -1,18 +1,18 @@
 # Options
 
-Type Option represents an optional value: every Option is either Some and contains a value, or None, and does not.
-Option types are very common in Rust code, as they have a number of uses:
+`Option` 类型表示一个可选值: 每个 `Option` 要么是 `Some` 并包含一个值，要么是 `None` 且不包含值。
 
-- Initial values
-- Return values for functions that are not defined over their entire input range (partial functions)
-- Return value for otherwise reporting simple errors, where None is returned on error
-- Optional struct fields
-- Struct fields that can be loaned or "taken"
-- Optional function arguments
-- Nullable pointers
-- Swapping things out of difficult situations
+在Rust代码中，`Option` 类型非常常见，因为它们有许多用途:
+- 初始值(Initial values)
+- 对于在整个输入范围上未定义的函数(部分函数)的返回值
+- 用于在发生错误时返回 `None` 以报告简单错误的返回值
+- 可选的结构体字段
+- 可以被借用或“获取”的结构体字段
+- 可选的函数参数
+- 空指针(Nullable pointers)
+- 当遇到一些复杂或错误的情况，临时替换某个值或者表示该值无效
 
-## Further Information
+## 对应知识
 
 - [Option Enum Format](https://doc.rust-lang.org/book/ch10-01-syntax.html#in-enum-definitions)
 - [Option Module Documentation](https://doc.rust-lang.org/std/option/)

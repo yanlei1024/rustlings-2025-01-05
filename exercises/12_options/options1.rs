@@ -1,13 +1,13 @@
-// This function returns how much icecream there is left in the fridge.
-// If it's before 22:00 (24-hour system), then 5 scoops are left. At 22:00,
-// someone eats it all, so no icecream is left (value 0). Return `None` if
-// `hour_of_day` is higher than 23.
+// 此函数返回冰箱中剩余的冰淇淋数量。
+// 在22:00(24小时制)之前，冰淇淋还剩下5勺。
+// 在22:00时，有人会把冰淇淋全部吃完，所以就没有剩余(值为0)。
+// 如果 `hour_of_day` 大于23，则返回 `None`。
 fn maybe_icecream(hour_of_day: u16) -> Option<u16> {
-    // TODO: Complete the function body.
+    // TODO: 完成函数体。
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // (可选)你可以选择性地在此处进行试验。
 }
 
 #[cfg(test)]
@@ -16,11 +16,10 @@ mod tests {
 
     #[test]
     fn raw_value() {
-        // TODO: Fix this test. How do you get the value contained in the
-        // Option?
+        // TODO: 修复此测试。如何获取 `Option` 中包含的值？
         let icecreams = maybe_icecream(12);
 
-        assert_eq!(icecreams, 5); // Don't change this line.
+        assert_eq!(icecreams, 5); // 不要修改此行代码。
     }
 
     #[test]

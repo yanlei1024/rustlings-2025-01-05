@@ -1,8 +1,7 @@
-// This is similar to the previous `from_into` exercise. But this time, we'll
-// implement `FromStr` and return errors instead of falling back to a default
-// value. Additionally, upon implementing `FromStr`, you can use the `parse`
-// method on strings to generate an object of the implementor type. You can read
-// more about it in the documentation:
+// 这与之前的 `from_into` 练习类似。
+// 但这次，我们将实现(impl) `FromStr` 并返回错误，而不是回退到默认值。
+// 此外，在实现 `FromStr` 之后，你可以使用字符串上的 `parse` 方法来生成实现该特性的类型的对象。
+// 你可以在文档中阅读更多关于它的内容:
 // https://doc.rust-lang.org/std/str/trait.FromStr.html
 
 use std::num::ParseIntError;
@@ -14,14 +13,14 @@ struct Person {
     age: u8,
 }
 
-// We will use this error type for the `FromStr` implementation.
+// 我们将把这种错误类型用于 `FromStr` 实现(impl)中。
 #[derive(Debug, PartialEq)]
 enum ParsePersonError {
-    // Incorrect number of fields
+    // 字段数量不正确
     BadLen,
-    // Empty name field
+    // 姓名字段为空
     NoName,
-    // Wrapped error from parse::<u8>()
+    // 来自 `parse::<u8>()` 的包装错误
     ParseInt(ParseIntError),
 }
 
@@ -31,7 +30,7 @@ impl FromStr for Person {
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let mut split = s.split(',');
         let (Some(name), Some(age), None) = (split.next(), split.next(), split.next()) else {
-            //                      ^^^^ there should be no third element
+            //                      ^^^^ 不应该有第三个元素
             return Err(ParsePersonError::BadLen);
         };
 
