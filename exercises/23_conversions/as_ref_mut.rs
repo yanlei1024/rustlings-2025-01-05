@@ -6,20 +6,21 @@
 // 获取给定参数中的字节数(bytes, 而非字符数)
 // (`.len()` 方法返回的是字符串中的字节数)。
 // TODO: 适当地添加 `AsRef` 特征作为特征约束(trait bound)。
-fn byte_counter<T>(arg: T) -> usize {
-    arg.as_ref().len()
+fn byte_counter<T: AsRef<str>>(arg: T) -> usize {
+    arg.as_ref().as_bytes().len()
 }
 
 // 获取给定参数中的字符数(而非字节数)。
 // TODO: 适当地添加 `AsRef` 特性作为特征约束。
-fn char_counter<T>(arg: T) -> usize {
+fn char_counter<T: AsRef<str>>(arg: T) -> usize {
     arg.as_ref().chars().count()
 }
 
 // 使用 `as_mut()` 并对一个数字进行求平方操作。
 // TODO: 添加特征约束。
-fn num_sq<T>(arg: &mut T) {
-    // TODO: 实现函数体
+fn num_sq<T: AsMut<u32>>(arg: &mut T) {
+    // TODO: Implement the function body.
+    *arg.as_mut() = arg.as_mut().pow(2);
 }
 
 fn main() {

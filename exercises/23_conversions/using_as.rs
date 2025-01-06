@@ -4,7 +4,7 @@
 fn average(values: &[f64]) -> f64 {
     let total = values.iter().sum::<f64>();
     // TODO: 在进行除法运算之前先进行转换。
-    total / values.len()
+    total / values.len() as f64
 }
 
 fn main() {

@@ -10,18 +10,18 @@
 // TODO: 在枚举定义中使用`Box`，使得代码能够通过编译。
 #[derive(PartialEq, Debug)]
 enum List {
-    Cons(i32, List),
+    Cons(i32, Box<List>),
     Nil,
 }
 
 // TODO: 创建一个空的构造列表(cons list)。
 fn create_empty_list() -> List {
-    todo!()
+    List::Nil
 }
 
 // TODO: 创建一个非空的构造列表(cons list)。
 fn create_non_empty_list() -> List {
-    todo!()
+    List::Cons(0, Box::new(List::Nil))
 }
 
 fn main() {

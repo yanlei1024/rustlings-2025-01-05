@@ -11,14 +11,14 @@
 // 使得除了支持数字成绩的成绩单之外，还能支持字母成绩的成绩单。 
 
 // TODO: 按照上述描述调整结构体。
-struct ReportCard {
-    grade: f32,
-    student_name: String,
-    student_age: u8,
+pub struct ReportCard<T> {
+    pub grade: T,
+    pub student_name: String,
+    pub student_age: u8,
 }
 
 // TODO: 按照上述描述调整实现块(impl block)。
-impl ReportCard {
+impl<T: std::fmt::Display> ReportCard<T> {
     fn print(&self) -> String {
         format!(
             "{} ({}) - 取得的成绩为 {}",

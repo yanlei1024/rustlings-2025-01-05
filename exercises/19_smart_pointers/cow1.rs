@@ -38,7 +38,7 @@ mod tests {
         let mut input = Cow::from(&vec);
         abs_all(&mut input);
         // TODO: 替换 `todo!()` 为 `Cow::Owned(_)` 或 `Cow::Borrowed(_)`。
-        assert!(matches!(input, todo!()));
+        assert!(matches!(input, Cow::Borrowed(_)));
     }
 
     #[test]
@@ -51,7 +51,7 @@ mod tests {
         let mut input = Cow::from(vec);
         abs_all(&mut input);
         // TODO: 替换 `todo!()` 为 `Cow::Owned(_)` 或 `Cow::Borrowed(_)`。
-        assert!(matches!(input, todo!()));
+        assert!(matches!(input, Cow::Owned(_)));
     }
 
     #[test]
@@ -62,6 +62,6 @@ mod tests {
         let mut input = Cow::from(vec);
         abs_all(&mut input);
         // TODO: 替换 `todo!()` 为 `Cow::Owned(_)` 或 `Cow::Borrowed(_)`。
-        assert!(matches!(input, todo!()));
+        assert!(matches!(input, Cow::Owned(_)));
     }
 }

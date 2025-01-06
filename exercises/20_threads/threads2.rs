@@ -1,7 +1,7 @@
 // 在上一个练习的基础上，我们希望所有线程都完成它们的工作。
 // 但这次，被生成的线程需要负责更新一个共享的值: `JobStatus.jobs_done`。 
 
-use std::{sync::Arc, thread, time::Duration};
+use std::{sync::{Arc, Mutex}, thread, time::Duration};
 
 struct JobStatus {
     jobs_done: u32,
@@ -9,7 +9,7 @@ struct JobStatus {
 
 fn main() {
     // TODO: 如果你想要一个**可变的**共享状态，仅使用 `Arc` 是不够的。
-    let status = Arc::new(JobStatus { jobs_done: 0 });
+    let status = Arc::new(Mutex::new(JobStatus { jobs_done: 0 }));
 
     let mut handles = Vec::new();
     for _ in 0..10 {
@@ -18,7 +18,7 @@ fn main() {
             thread::sleep(Duration::from_millis(250));
 
             // TODO: 在更新共享值之前，你必须采取一项措施。
-            status_shared.jobs_done += 1;
+            status_shared.lock().unwrap().jobs_done += 1;
         });
         handles.push(handle);
     }
@@ -29,5 +29,5 @@ fn main() {
     }
 
     // TODO: 打印`JobStatus.jobs_done` 的值。
-    println!("Jobs done: {}", todo!());
+    println!("Jobs done: {}", status.lock().unwrap().jobs_done);
 }

@@ -3,12 +3,12 @@
 // 幸运的是，Rust有一个与 `Option` 类似的结构，可以用来表示错误情况。
 // 将函数签名和函数体改为返回 `Result<String, String>`，而不是 `Option<String>`。
 
-fn generate_nametag_text(name: String) -> Option<String> {
+fn generate_nametag_text(name: String) -> Result<String, String> {
     if name.is_empty() {
         // 不允许姓名为空。
-        None
+        Err("`name` was empty; it must be nonempty.".into())
     } else {
-        Some(format!("Hi! My name is {name}"))
+        Ok(format!("Hi! My name is {}", name))
     }
 }
 
@@ -34,7 +34,7 @@ mod tests {
             generate_nametag_text(String::new())
                 .as_ref()
                 .map_err(|e| e.as_str()),
-            Err("不允许姓名为空"),
+                Err("`name` was empty; it must be nonempty.")
         );
     }
 }

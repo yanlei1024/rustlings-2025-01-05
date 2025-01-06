@@ -23,6 +23,7 @@ fn main() {
     for handle in handles {
         // TODO: 将所有线程的结果收集到 `results` 动态数组中。
         // 使用由 `thread::spawn` 返回的 `JoinHandle` 结构体。
+        results.push(handle.join().unwrap());
     }
 
     if results.len() != 10 {

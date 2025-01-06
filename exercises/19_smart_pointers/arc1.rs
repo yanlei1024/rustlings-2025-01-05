@@ -22,13 +22,13 @@ fn main() {
     let numbers: Vec<_> = (0..100u32).collect();
 
     // TODO: 使用`Arc`(原子引用计数智能指针)来定义`shared_numbers`。
-    // let shared_numbers = ???;
+    let shared_numbers =Arc::new(numbers);
 
     let mut join_handles = Vec::new();
 
     for offset in 0..8 {
         // TODO: 使用 `shared_numbers` 来定义 `child_numbers`。
-        // let child_numbers = ???;
+        let child_numbers = shared_numbers.clone();
 
         let handle = thread::spawn(move || {
             let sum: u32 = child_numbers.iter().filter(|&&n| n % 8 == offset).sum();

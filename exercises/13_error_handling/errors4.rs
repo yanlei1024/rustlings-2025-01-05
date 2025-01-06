@@ -8,9 +8,13 @@ enum CreationError {
 struct PositiveNonzeroInteger(u64);
 
 impl PositiveNonzeroInteger {
-    fn new(value: i64) -> Result<Self, CreationError> {
-        // TODO: 此函数不应该总是返回 `Ok`.
-        Ok(Self(value as u64))
+    fn new(value: i64) -> Result<PositiveNonzeroInteger, CreationError> {
+        // Hmm...? Why is this only returning an Ok value?
+        match value {
+            x if x < 0 => Err(CreationError::Negative),
+            0 => Err(CreationError::Zero),
+            x => Ok(PositiveNonzeroInteger(x as u64)),
+        }
     }
 }
 

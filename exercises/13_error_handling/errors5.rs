@@ -9,30 +9,27 @@
 // 其中 `Trait` 就是编译器在该上下文中所使用的任何值上查找的特征。
 // 对于本练习而言，这个上下文就是那些可能在 `Result` 中返回的错误情况。 
 
-use std::error::Error;
+use std::error;
 use std::fmt;
+
+// TODO: update the return type of `main()` to make this compile.
+fn main() -> Result<(), Box<dyn error::Error>> {
+    let pretend_user_input = "42";
+    let x: i64 = pretend_user_input.parse()?;
+    println!("output={:?}", PositiveNonzeroInteger::new(x)?);
+    Ok(())
+}
+
+// Don't change anything below this line.
+
+#[derive(PartialEq, Debug)]
+struct PositiveNonzeroInteger(u64);
 
 #[derive(PartialEq, Debug)]
 enum CreationError {
     Negative,
     Zero,
 }
-
-// 这样做是为了让 `CreationError` 能够实现 `Error`。
-impl fmt::Display for CreationError {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let description = match *self {
-            CreationError::Negative => "number is negative",
-            CreationError::Zero => "number is zero",
-        };
-        f.write_str(description)
-    }
-}
-
-impl Error for CreationError {}
-
-#[derive(PartialEq, Debug)]
-struct PositiveNonzeroInteger(u64);
 
 impl PositiveNonzeroInteger {
     fn new(value: i64) -> Result<PositiveNonzeroInteger, CreationError> {
@@ -44,11 +41,15 @@ impl PositiveNonzeroInteger {
     }
 }
 
-// TODO: 添加正确的返回类型 `Result<(), Box<dyn???>>`。
-// 我们可以用什么来描述这两种错误呢？是否存在一个这两种错误都实现的特征(trait)呢?
-fn main() {
-    let pretend_user_input = "42";
-    let x: i64 = pretend_user_input.parse()?;
-    println!("output={:?}", PositiveNonzeroInteger::new(x)?);
-    Ok(())
+// This is required so that `CreationError` can implement `error::Error`.
+impl fmt::Display for CreationError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let description = match *self {
+            CreationError::Negative => "number is negative",
+            CreationError::Zero => "number is zero",
+        };
+        f.write_str(description)
+    }
 }
+
+impl error::Error for CreationError {}

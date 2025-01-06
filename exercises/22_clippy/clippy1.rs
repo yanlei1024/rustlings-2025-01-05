@@ -5,7 +5,7 @@
 
 fn main() {
     // TODO: 修复此行中的Clippy lint(检查提示)。
-    let pi = 3.14;
+    let pi = std::f32::consts::PI;
     let radius: f32 = 5.0;
 
     let area = pi * radius.powi(2);

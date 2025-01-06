@@ -1,5 +1,5 @@
 // TODO: 在 `:` 后添加参数 `num` 缺失的类型。
-fn call_me(num:) {
+fn call_me(num: u8) {
     for i in 0..num {
         println!("叮! 调用数字 {}", i + 1);
     }
